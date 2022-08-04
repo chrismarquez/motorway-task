@@ -4,7 +4,6 @@
         "target": "esnext",
         "module": "CommonJS",
         "sourceMap": true,
-        "watch": true,
         "strict": true,
         "outDir": "dist/",
         "lib": [
