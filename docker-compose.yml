@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    container_name: motorway-web
+    environment:
+      - RABBIT_URL=amqp://user:password@rabbit
+      - MEMCACHE_URL=memcached:11211
+    ports:
+      - "3000:3000"
+  rabbit:
+    image: rabbitmq
+    container_name: motorway-rabbit
+    hostname: my_rabbit
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+    ports:
+      - "5672:5672"
+  memcached:
+    image: memcached
+    container_name: motorway-memcache
+    ports:
+      - "11211:11211"
+      # -p 11211-11299:11211-11299 --name my-memcache -d memcached
