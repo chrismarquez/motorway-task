@@ -28,8 +28,8 @@ export class VehiclePriceCacheRepository {
 	private readonly client: Memcached;
 
 	constructor() {
-		const port = process.env.MEMCACHE_PORT || 11211;
-		this.client = new Memcached(`localhost:${port}`, {
+		const url = process.env.MEMCACHE_URL || `localhost:11211`;
+		this.client = new Memcached(url, {
 			retries: 0,
 			failures: 0
 		});
