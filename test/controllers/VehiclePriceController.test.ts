@@ -13,7 +13,7 @@ describe("VehiclePriceRouter", () => {
 	const connectionMock = { createChannel: jest.fn().mockResolvedValueOnce(channelMock), close: jest.fn() };
 	// @ts-ignore
 	jest.spyOn(AMQP, "connect").mockResolvedValue(connectionMock);
-	
+
 	afterEach(() => {
 		jest.clearAllMocks();
 	});
